@@ -18,7 +18,7 @@ function NewTransaction({ onAddTransaction }) {
 
             }
         }
-        // persist todo on server
+        // persist transaction on server
         fetch("http://localhost:3000/transactions", {
             method: "POST",
             headers: {
@@ -27,8 +27,8 @@ function NewTransaction({ onAddTransaction }) {
             body: JSON.stringify(transactionObj)
         })
             .then(r => r.json())
-            .then(data => console.log(data.transaction))
-        // then use onAddTodo to add todo to state
+            .then(data => onAddTransaction(data.transaction))
+        // then use onAddTransaction to add transaction to state
     }
   
     return (
@@ -41,6 +41,8 @@ function NewTransaction({ onAddTransaction }) {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
             />
+            <br/>
+            <br/>
             <label htmlFor="description">Description:</label>
             <input
                 type="text"
@@ -48,6 +50,8 @@ function NewTransaction({ onAddTransaction }) {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
+            <br/>
+            <br/>
             <label htmlFor="category">category:</label>
             <input
                 type="text"
@@ -55,13 +59,17 @@ function NewTransaction({ onAddTransaction }) {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
             />
+            <br/>
+            <br/>
             <label htmlFor="amount">amount:</label>
             <input
                 type="text"
                 id="amount"
-                value={category}
+                value={amount}
                 onChange={(e) => setAmount(e.target.value)}
             />
+            <br/>
+            <br/>
             <button type="submit">Add trasaction</button>
         </form>
     )
