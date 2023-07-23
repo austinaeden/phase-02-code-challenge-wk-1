@@ -1,11 +1,8 @@
 import React from "react"
 
-function TransactionItem({ transaction, onUpdateTransaction, onDeleteTransaction }) {
+function TransactionItem({ transaction, onDeleteTransaction }) {
     const { id, date, description, category, amount } = transaction
-    
-    function handleCompleted(e) {
-        
-    }
+
     
     function handleDelete() {
         fetch(`http://localhost:3000/transactions/${id}`,{
