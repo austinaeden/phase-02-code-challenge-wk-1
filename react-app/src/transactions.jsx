@@ -14,6 +14,7 @@ function TransactionItem({ transaction, onDeleteTransaction }) {
     return (
         <table>
             <tbody>
+                <tr>
                 <td><strong>{date} : </strong></td>
                 <td>{description} : </td>
                 <td>{category} : </td>
@@ -21,6 +22,7 @@ function TransactionItem({ transaction, onDeleteTransaction }) {
                 <td>
                     <button onClick={handleDelete}>Delete</button>
                 </td>
+                </tr>
             </tbody>
         </table>
 

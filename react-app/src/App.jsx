@@ -1,5 +1,4 @@
 import React from 'react'
-import SearchBar from './searchBar'
 import NewTransaction from './newtransaction'
 import TransactionList from './transactionlist'
 import { useEffect, useState } from 'react'
@@ -25,7 +24,7 @@ function FilterableProductTable() {
 
   return (
     <div style={{ padding: "5px", border: "1px solid orange"}}>
-      <SearchBar />
+      <h1>Bank of Flatiron</h1>
       <NewTransaction onAddTransaction={addTransaction} />
       <TransactionList transactions={transactions} onDeleteTransaction={deleteTransaction}/>
     </div>
