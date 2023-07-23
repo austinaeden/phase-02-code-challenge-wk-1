@@ -18,12 +18,16 @@ function FilterableProductTable() {
     setTransactions(updatedTransactions);
   }
 
+  function deleteTransaction(id) {
+    const updatedTransactions = transactions.filter(transactions => transactions.id !== id)
+    setTransactions(updatedTransactions)
+}
 
   return (
     <div style={{ padding: "5px", border: "1px solid orange"}}>
       <SearchBar />
       <NewTransaction onAddTransaction={addTransaction} />
-      <TransactionList transactions={transactions}/>
+      <TransactionList transactions={transactions} onDeleteTransaction={deleteTransaction}/>
     </div>
   )
 }

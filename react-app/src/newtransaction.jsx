@@ -38,7 +38,7 @@ function NewTransaction({ onAddTransaction }) {
             <input
                 type="text"
                 id="date"
-                placeholder="Year/Month/Day"
+                placeholder="Year--Month--Day"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
             />

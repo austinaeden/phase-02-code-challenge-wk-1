@@ -1,6 +1,6 @@
 import React from "react"
 
-function TransactionItem({ transaction, onUpdateTodo, onDeleteTodo }) {
+function TransactionItem({ transaction, onUpdateTransaction, onDeleteTransaction }) {
     const { id, date, description, category, amount } = transaction
     
     function handleCompleted(e) {
@@ -8,7 +8,10 @@ function TransactionItem({ transaction, onUpdateTodo, onDeleteTodo }) {
     }
     
     function handleDelete() {
-        
+        fetch(`http://localhost:3000/transactions/${id}`,{
+      method:"DELETE"
+    })
+    onDeleteTransaction(id)
     }
     
     return (
@@ -19,7 +22,7 @@ function TransactionItem({ transaction, onUpdateTodo, onDeleteTodo }) {
                 <td>{category} : </td>
                 <td><strong>{amount}</strong></td>
                 <td>
-                    <button>Delete</button>
+                    <button onClick={handleDelete}>Delete</button>
                 </td>
             </tbody>
         </table>

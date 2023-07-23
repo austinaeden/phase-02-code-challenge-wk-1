@@ -97,42 +97,8 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
-    },
-    {
-      "transaction": {
-        "date": "22",
-        "description": "nn",
-        "category": "mm",
-        "amount": "mm"
-      },
-      "id": 15
-    },
-    {
-      "transaction": {
-        "date": "ww",
-        "description": "",
-        "category": "",
-        "amount": ""
-      },
-      "id": 16
-    },
-    {
-      "transaction": {
-        "date": "ww",
-        "description": "dd",
-        "category": "gg",
-        "amount": "jj"
-      },
-      "id": 17
-    },
-    {
-      "transaction": {
-        "date": "ww",
-        "description": "dd",
-        "category": "gg",
-        "amount": "jj"
-      },
-      "id": 18
     }
   ]
-}
+ }
+ 
+ 
