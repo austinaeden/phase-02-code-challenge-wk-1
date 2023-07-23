@@ -3,13 +3,15 @@ Phase-02-code-challenge-wk-1
 Bank of Flatiron
 
 ## Description
-This is my week 3 code challenge showing how i did the project.
+This is my week 1 phase 2 code challenge showing how i did the project.
 
-The project allows a person to buy tickets for a movie.
+The project allows a person to Fill out and submit the form to add a new transaction.
 
-It shows the number of tickets available.
+This should add the new transaction to the table *the new transaction does not have to be persisted to the backend*
 
-If the the tickets are sold out the user can't buy one
+Filter transactions by typing into the search bar.
+
+Only transactions with a description matching the search term should be shown in the transactions table.
 
 
 ## Technologies Used
@@ -17,15 +19,16 @@ This challenge was mainly based on
 - JavaScript
 - HTML
 - json-server
+- react
 
 ## Installation
 To install this project, you need to have vs-code, git installed in your machine.
 
-Then simply clone the reposetory at the terminal n then by using the command 'git clone https://github.com/austinaeden/phase-1-code-challenge-wk3.git'. 
+Then simply clone the reposetory at the terminal n then by using the command 'git clone https://github.com/austinaeden/phase-02-code-challenge-wk-1. 
 
-Then navigate to the project directory by using the command "cd phase-1-code-challenge-wk3".
+Then navigate to the project directory by using the command "cd phase-1-code-challenge-wk3" and to the project by using "cd react-app'.
 
-Then start the development server 'json-server --watch db.json'.
+Then start the development server 'json-server --watch db.json' and also on another terminal run the react project by using the command "npm run dev".
 
 Open the HTML file using the suitable live server.
 
@@ -36,7 +39,11 @@ Open the HTML file using the suitable live server.
 
 You should see the project's homepage.
 
-Click on "MENU" the select the movie which you want to buy the tickets for and see if the tickets are available.
+Fill in a new transaction on the form then submit  if you want to.
+
+If you want to  look for a transaction made before use the search bar.
+
+Or if you want to delete a transaction made just pres thr delete button on the right side of the transaction.
 
 If the tickets are available buy the tickets on the "BUY TICKET" button but if there is no ticket available choose another movie and buy the ticket.
 
