@@ -12,13 +12,18 @@ function TransactionItem({ transaction, onUpdateTodo, onDeleteTodo }) {
     }
     
     return (
-        <li>
-            <strong>{ date }</strong>
-            <strong>{ description }</strong>
-            <strong>{ category }</strong>
-            <strong>{ amount }</strong>            
-            <button onClick={handleDelete}>Delete</button>
-        </li>
+        <table>
+            <tbody>
+                <td><strong>{date} : </strong></td>
+                <td>{description} : </td>
+                <td>{category} : </td>
+                <td><strong>{amount}</strong></td>
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tbody>
+        </table>
+
     )
 }
 
