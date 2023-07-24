@@ -34,6 +34,7 @@ function FilterableProductTable() {
     <div style={{ padding: "5px", border: "1px solid orange"}}>
       <h1>Bank of Flatiron</h1>
       <NewTransaction onAddTransaction={addTransaction} />
+      <br/>
       <SearchBar handleSearch={handleSearch}/>
       <TransactionList transactions={transactions} onDeleteTransaction={deleteTransaction}/>
     </div>
