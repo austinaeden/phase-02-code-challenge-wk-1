@@ -8,10 +8,10 @@ import SearchBar from './searchBar';
 //creating a function component for the front end display
 function FilterableProductTable() {
   const [transactions, setTransactions] = useState([]);
-  const [query, setQuery] = useState ([]);
+  const [query, setQuery] = useState ("");
   //using side effect for fetching objs in the json
   useEffect(() => {
-      fetch("http://localhost:3000/transactions" + query)
+      fetch("http://localhost:3000/transactions?q=" + query)
         .then((r) => r.json())
         .then(data => setTransactions(data))
   }, [query])
