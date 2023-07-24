@@ -1,15 +1,13 @@
-//importing react from the react file
+//importing react from the react file 
 import React from "react"
-
-//creating function component  for search bar
-function SearchBar({search, setFilterdTansaction}) {
-//returning the components
+//creating a function component for the search bar
+function SearchBar({handleSearch}) {
+  //returning  the component 
     return (
       <form style={{ padding: "5px", border: "1px solid blue", display: "flex", flexDirection: "column" }}>
-        <input type="text" placeholder="Search...(description)" value={search} onChange={setFilterdTansaction}/>
+        <input type="text" placeholder="Search..." onChange={handleSearch}/>
       </form>
     )
 }
-
-//exporting search bar component
+//exporting the search bar component to other files
 export default SearchBar

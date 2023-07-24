@@ -1,29 +1,24 @@
-//importing react from the react file
+//importing components from other files
 import React from "react"
-
-//creating function component for the transaction item
-function TransactionItem({ transaction, onDeleteTransaction,  }) {
-
-    //creating variabble for the objects in the json file array
+//creating componenet function for transaction items
+function TransactionItem({ transaction, onDeleteTransaction }) {
     const { id, date, description, category, amount } = transaction
-    
 
-    //deleteng transactions through fetch
+    //deleting data from the json through fetch
     function handleDelete() {
         fetch(`http://localhost:3000/transactions/${id}`,{
       method:"DELETE"
     })
     onDeleteTransaction(id)
     }
-    //returning the function comonents that are to be rendered
+    //returning the component 
     return (
-
         <table>
             <tbody>
                 <tr>
-                <td><strong>{date} : :</strong></td>
-                <td>{description} <strong>: :</strong> </td>
-                <td>{category} <strong>: :</strong> </td>
+                <td><strong>{date} : </strong></td>
+                <td>{description} : </td>
+                <td>{category} : </td>
                 <td><strong>{amount}</strong></td>
                 <td>
                     <button onClick={handleDelete}>Delete</button>
@@ -34,6 +29,5 @@ function TransactionItem({ transaction, onDeleteTransaction,  }) {
 
     )
 }
-
-//exporting component to other files 
+//exporting the component to other files
 export default TransactionItem

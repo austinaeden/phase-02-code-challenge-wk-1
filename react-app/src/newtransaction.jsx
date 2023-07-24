@@ -1,14 +1,13 @@
-//importing react and usestate from the react file
+//importing react from the react file
 import React, { useState } from "react"
-
-//creating a function component for adding the transaction
+//creating the function component for new transaction update
 function NewTransaction({ onAddTransaction }) {
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [amount, setAmount] = useState("");
 
-    //creating a funtion for handling the submit form
+    //creating a function for handling the submit button
     function handleSubmit(e) {
         e.preventDefault()
         const transactionObj = { 
@@ -20,7 +19,7 @@ function NewTransaction({ onAddTransaction }) {
 
             }
         }
-        // persist or posting transaction on server
+        // persist transaction on server
         fetch("http://localhost:3000/transactions", {
             method: "POST",
             headers: {
@@ -32,10 +31,8 @@ function NewTransaction({ onAddTransaction }) {
             .then(data => onAddTransaction(data.transaction))
         // then use onAddTransaction to add transaction to state
     }
-  
-    //returning the components of the function called 
+  //returning the component function
     return (
-        //creating a form 
         <form onSubmit={handleSubmit}>
             <h2>Add Transaction</h2>
             <label htmlFor="date">date:</label>
@@ -79,6 +76,5 @@ function NewTransaction({ onAddTransaction }) {
         </form>
     )
 }
-
-//exporting the components 
+//exporting the new transaction component to other files 
 export default NewTransaction;

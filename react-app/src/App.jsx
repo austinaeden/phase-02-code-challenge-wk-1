@@ -1,57 +1,43 @@
-//importing components fro other files
+//importing components from other files 
 import React from 'react'
 import NewTransaction from './newtransaction'
 import TransactionList from './transactionlist'
-import SearchBar from './searchBar'
 import { useEffect, useState } from 'react'
+import SearchBar from './searchBar';
 
-//creating a function for displaying the transactions
+//creating a function component for the front end display
 function FilterableProductTable() {
   const [transactions, setTransactions] = useState([]);
-  const [filterdTansaction, setFilterdTansaction ] = useState(transactions)
-  const [searchQuery, setSearchQuery]= useState("")
-  
-  //use effect for fetch by getting data
+  const [query, setQuery] = useState ([]);
+  //using side effect for fetching objs in the json
   useEffect(() => {
-      fetch("http://localhost:3000/transactions")
+      fetch("http://localhost:3000/transactions" + query)
         .then((r) => r.json())
-        .then(data => {
-          setFilterdTansaction(data)
-          setTransactions(data)
-        })
-  }, [])
-
-  //creating function for handling search
-  function handleSearch(event){
-    const query= event.target.value;
-    setSearchQuery(query)
-    const filterd = transactions.filter(item=>{
-      return item.description.toLowerCase().includes(query.toLowerCase())
-    })
-    setFilterdTansaction(filterd)
-  }
-
-  //creating function for adding transaction
+        .then(data => setTransactions(data))
+  }, [query])
+//creating adding transaction function
   function addTransaction(newTransactions) {
     const updatedTransactions = [...transactions, newTransactions]
     setTransactions(updatedTransactions);
   }
-
-  //creating function for deleting transction 
+//creating search function
+  function handleSearch(event){
+    setQuery(event.target.value)
+  }
+//creating deleting transaction function
   function deleteTransaction(id) {
     const updatedTransactions = transactions.filter(transactions => transactions.id !== id)
     setTransactions(updatedTransactions)
 }
-  //returning the function of the displaying the transaction
+//returning the function for displaying the componenets
   return (
     <div style={{ padding: "5px", border: "1px solid orange"}}>
       <h1>Bank of Flatiron</h1>
       <NewTransaction onAddTransaction={addTransaction} />
-      <SearchBar  setFilterdTansaction={handleSearch} search={searchQuery}/>
-      <TransactionList transactions={filterdTansaction} onDeleteTransaction={deleteTransaction}/>
+      <SearchBar handleSearch={handleSearch}/>
+      <TransactionList transactions={transactions} onDeleteTransaction={deleteTransaction}/>
     </div>
   )
 }
-
-//exporting the component of transactions to the main.jsx file
+//exporting the main component
 export default FilterableProductTable
