@@ -6,7 +6,7 @@ function TransactionItem({ transaction, onDeleteTransaction }) {
 
     //deleting data from the json through fetch
     function handleDelete() {
-        fetch(`https://api.npoint.io/cddb9265cf69b9c642e8/transactions/${id}`,{
+        fetch(`http://localhost:3000/transactions/${id}`,{
       method:"DELETE"
     })
     onDeleteTransaction(id)

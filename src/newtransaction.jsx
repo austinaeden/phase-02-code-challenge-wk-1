@@ -11,19 +11,16 @@ function NewTransaction({ onAddTransaction }) {
     function handleSubmit(e) {
         e.preventDefault()
         const transactionObj = { 
-            transaction: { 
                 date: date,
                 description: description,
                 category: category,
                 amount: amount,
-
-            }
         }
         // persist transaction on server
-        fetch("https://api.npoint.io/cddb9265cf69b9c642e8/transactions", {
+        fetch("http://localhost:3000/transactions", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json; charset=UTF-8"
             },
             body: JSON.stringify(transactionObj)
         })

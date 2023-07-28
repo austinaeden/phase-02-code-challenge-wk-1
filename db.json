@@ -97,15 +97,6 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
-    },
-    {
-      "transaction": {
-        "date": "2023-07-12",
-        "description": "phone",
-        "category": "samsung",
-        "amount": "1000"
-      },
-      "id": 15
     }
   ]
 }
