@@ -1,26 +1,30 @@
-//importing react from the react file
+//importing react and usestate from the react file
 import React, { useState } from "react"
-//creating the function component for new transaction update
+
+//creating a function component for adding the transaction
 function NewTransaction({ onAddTransaction }) {
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [amount, setAmount] = useState("");
 
-    //creating a function for handling the submit button
+    //creating a funtion for handling the submit form
     function handleSubmit(e) {
         e.preventDefault()
         const transactionObj = { 
+            transaction: { 
                 date: date,
                 description: description,
                 category: category,
                 amount: amount,
+
+            }
         }
-        // persist transaction on server
-        fetch("https://api.npoint.io/0e80577facc8d4893334/transactions", {
+        // persist or posting transaction on server
+        fetch("http://localhost:3000/transactions", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json; charset=UTF-8"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(transactionObj)
         })
@@ -28,8 +32,10 @@ function NewTransaction({ onAddTransaction }) {
             .then(data => onAddTransaction(data.transaction))
         // then use onAddTransaction to add transaction to state
     }
-  //returning the component function
+  
+    //returning the components of the function called 
     return (
+        //creating a form 
         <form onSubmit={handleSubmit}>
             <h2>Add Transaction</h2>
             <label htmlFor="date">date:</label>
@@ -73,5 +79,6 @@ function NewTransaction({ onAddTransaction }) {
         </form>
     )
 }
-//exporting the new transaction component to other files 
+
+//exporting the components 
 export default NewTransaction;

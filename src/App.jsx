@@ -11,7 +11,7 @@ function FilterableProductTable() {
   const [query, setQuery] = useState ("");
   //using side effect for fetching objs in the json
   useEffect(() => {
-      fetch("https://api.npoint.io/0e80577facc8d4893334/transactions?q=" + query)
+      fetch("http://localhost:3000/transactions?q=" + query)
         .then((r) => r.json())
         .then(data => setTransactions(data))
   }, [query])
