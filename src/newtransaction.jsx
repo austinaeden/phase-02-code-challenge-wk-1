@@ -17,7 +17,7 @@ function NewTransaction({ onAddTransaction }) {
                 amount: amount,
         }
         // persist transaction on server
-        fetch("http://localhost:3000/transactions", {
+        fetch("https://api.npoint.io/0e80577facc8d4893334/transactions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"
